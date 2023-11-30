@@ -1,3 +1,4 @@
+import './index.css';
 export interface ColorPickerContentProps {
     onChange: (val: string) => void;
     value: string;

@@ -61,7 +61,7 @@ import { BasicType, ImageManager, EMAIL_BLOCK_CLASS_NAME, BlockManager, createBl
 import ReactDOM, { findDOMNode, createPortal } from "react-dom";
 import { Field, useForm as useForm$1, useField, Form as Form$3, version as version$2, useFormState } from "react-final-form";
 import mjml from "mjml-browser";
-var index$2 = "";
+var index$3 = "";
 const title = "_title_1f523_1";
 var styles$b = {
   title
@@ -9150,7 +9150,7 @@ var ResizeObserver$1 = function() {
     return (_a = observers.get(this))[method].apply(_a, arguments);
   };
 });
-var index$1 = function() {
+var index$2 = function() {
   if (typeof global$1.ResizeObserver !== "undefined") {
     return global$1.ResizeObserver;
   }
@@ -9187,7 +9187,7 @@ var ResizeObserverComponent = function(_super) {
       }
     };
     _this.createResizeObserver = function() {
-      _this.resizeObserver = new index$1(function(entry) {
+      _this.resizeObserver = new index$2(function(entry) {
         var onResize = _this.props.onResize;
         onResize && onResize(entry);
       });
@@ -10749,7 +10749,7 @@ var Trigger = function(_super) {
     };
     _this.observerContainer = null;
     _this.scrollElements = null;
-    _this.resizeObserver = new index$1(function() {
+    _this.resizeObserver = new index$2(function() {
       _this.handleUpdatePosition();
     });
     _this.childrenDom = null;
@@ -15859,7 +15859,7 @@ var OverflowWrap = function(props) {
   useEffect(function() {
     var ulElement = refUl.current;
     computeLastVisibleIndex();
-    refResizeObserver.current = new index$1(function(entries) {
+    refResizeObserver.current = new index$2(function(entries) {
       entries.forEach(computeLastVisibleIndex);
     });
     refResizeObserver.current.observe(ulElement);
@@ -23443,7 +23443,7 @@ function enableBoundaryChecking(flag) {
   }
   _boundaryCheckingState = flag;
 }
-var index = {
+var index$1 = {
   strip,
   plus,
   minus,
@@ -23586,8 +23586,8 @@ function toSafeString(number) {
   try {
     var isNegative = number < 0;
     var absoluteValue = Math.abs(+number);
-    var digitLength_1 = index.digitLength(absoluteValue);
-    var integerNum = index.float2Fixed(absoluteValue);
+    var digitLength_1 = index$1.digitLength(absoluteValue);
+    var integerNum = index$1.float2Fixed(absoluteValue);
     var integerStr_1 = integerNum.toString().replace(/e\+(\d+)/i, function(_, $1) {
       return new Array(+$1).fill(0).join("");
     });
@@ -23644,7 +23644,7 @@ var __read$t = globalThis && globalThis.__read || function(o, n) {
   }
   return ar;
 };
-index.enableBoundaryChecking(false);
+index$1.enableBoundaryChecking(false);
 var AUTO_CHANGE_INTERVAL = 200;
 var AUTO_CHANGE_START_DELAY = 1e3;
 var defaultProps$a = {
@@ -23739,7 +23739,7 @@ function InputNumber(baseProps, ref) {
     }
     var finalValue = min === -Infinity ? 0 : min;
     if (!isEmptyValue2) {
-      finalValue = index[method](value, step);
+      finalValue = index$1[method](value, step);
     }
     setValue(getLegalValue(finalValue));
     refInput.current && refInput.current.focus();
@@ -33050,6 +33050,7 @@ const PresetColorsProvider = (props) => {
     }, props.children);
   }, [props.children, value]);
 };
+var index = "";
 const transparentColor$1 = "rgba(0,0,0,0)";
 function ColorPickerContent(props) {
   const { colors: presetColors } = useContext(PresetColorsContext);
@@ -33091,9 +33092,12 @@ function ColorPickerContent(props) {
         borderRadius: 3,
         backgroundColor: item2,
         position: "relative",
-        cursor: "pointer"
+        cursor: "pointer",
+        overflow: "hidden"
       }
-    });
+    }, item2 === "transparent" && /* @__PURE__ */ React__default.createElement("div", {
+      className: "diagonalLine"
+    }));
   }))), /* @__PURE__ */ React__default.createElement("div", {
     style: {
       padding: "6px 6px 0px 6px"
