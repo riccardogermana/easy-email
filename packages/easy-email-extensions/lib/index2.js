@@ -33094,7 +33094,21 @@ function ColorPickerContent(props) {
         cursor: "pointer",
         overflow: "hidden"
       }
-    }, item2 === "transparent" && /* @__PURE__ */ React__default.createElement("div", {
+    }, /* @__PURE__ */ React__default.createElement("div", {
+      style: {
+        position: "absolute",
+        backgroundColor: "red",
+        left: 0,
+        top: 0,
+        bottom: 0,
+        right: 0,
+        width: "1px",
+        height: "150%",
+        transform: "rotate(-45deg)",
+        transformOrigin: "0 0",
+        zIndex: 1
+      }
+    }), item2 === "transparent" && /* @__PURE__ */ React__default.createElement("div", {
       style: {
         position: "absolute",
         backgroundColor: "red",
