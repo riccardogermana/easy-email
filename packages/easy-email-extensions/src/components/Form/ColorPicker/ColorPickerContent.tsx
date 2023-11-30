@@ -46,7 +46,6 @@ export function ColorPickerContent(props: ColorPickerContentProps) {
           size='mini'
         >
           {presetColorList.map(item => {
-            console.log(item);
             return (
               <div
                 title={item}
@@ -66,21 +65,6 @@ export function ColorPickerContent(props: ColorPickerContentProps) {
                   overflow: 'hidden',
                 }}
               >
-                <div
-                  style={{
-                    position: 'absolute',
-                    backgroundColor: 'red',
-                    left: 0,
-                    top: 0,
-                    bottom: 0,
-                    right: 0,
-                    width: '1px',
-                    height: '150%',
-                    transform: 'rotate(-45deg)',
-                    transformOrigin: '0 0',
-                    zIndex: 1,
-                  }}
-                />
                 {item === 'transparent' && (
                   <div
                     style={{
