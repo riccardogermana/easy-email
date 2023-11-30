@@ -2,7 +2,6 @@ import { Button, Space } from '@arco-design/web-react';
 import React, { useContext, useEffect, useMemo, useState } from 'react';
 
 import styles from '../index.module.scss';
-import './index.css';
 import Color from 'color';
 
 import { PresetColorsContext } from '@extensions/AttributePanel/components/provider/PresetColorsProvider';
@@ -66,7 +65,23 @@ export function ColorPickerContent(props: ColorPickerContentProps) {
                   overflow: 'hidden',
                 }}
               >
-                {item === 'transparent' && <div className='diagonalLine' />}
+                {item === 'transparent' && (
+                  <div
+                    style={{
+                      position: 'absolute',
+                      backgroundColor: 'red',
+                      left: 0,
+                      top: 0,
+                      bottom: 0,
+                      right: 0,
+                      width: '1px',
+                      height: '150%',
+                      transform: 'rotate(-45deg)',
+                      transformOrigin: '0 0',
+                      zIndex: 1,
+                    }}
+                  />
+                )}
               </div>
             );
           })}
