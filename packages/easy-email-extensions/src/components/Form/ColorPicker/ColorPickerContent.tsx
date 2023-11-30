@@ -46,6 +46,7 @@ export function ColorPickerContent(props: ColorPickerContentProps) {
           size='mini'
         >
           {presetColorList.map(item => {
+            console.log(item);
             return (
               <div
                 title={item}
