@@ -36450,65 +36450,6 @@ function IconFontColor({ selectionRange, execCommand, getPopoverMountNode }) {
     title: t("Text color")
   }));
 }
-function BasicTools() {
-  const { copyBlock, removeBlock } = useBlock();
-  const { focusIdx: focusIdx2, setFocusIdx } = useFocusIdx();
-  const { modal, setModalVisible } = useAddToCollection();
-  const { onAddCollection } = useEditorProps();
-  const handleAddToCollection = () => {
-    if (document.activeElement instanceof HTMLElement) {
-      document.activeElement.blur();
-    }
-    setModalVisible(true);
-  };
-  const handleCopy = (ev) => {
-    if (document.activeElement instanceof HTMLElement) {
-      document.activeElement.blur();
-    }
-    copyBlock(focusIdx2);
-  };
-  const handleDelete = () => {
-    if (document.activeElement instanceof HTMLElement) {
-      document.activeElement.blur();
-    }
-    removeBlock(focusIdx2);
-  };
-  const handleSelectParent = () => {
-    if (document.activeElement instanceof HTMLElement) {
-      document.activeElement.blur();
-    }
-    setFocusIdx(getParentIdx(focusIdx2));
-  };
-  return /* @__PURE__ */ React__default.createElement("div", {
-    style: { marginRight: 40 }
-  }, /* @__PURE__ */ React__default.createElement("span", {
-    style: { position: "relative", marginRight: 10, color: "#fff", fontFamily: "-apple-system, BlinkMacSystemFont, San Francisco, Segoe UI" }
-  }, "Text"), /* @__PURE__ */ React__default.createElement(ToolItem$1, {
-    onClick: handleSelectParent,
-    title: t("Select parent block"),
-    icon: /* @__PURE__ */ React__default.createElement(IconFont, {
-      iconName: "icon-back-parent"
-    })
-  }), /* @__PURE__ */ React__default.createElement(ToolItem$1, {
-    onClick: handleCopy,
-    title: t("Copy"),
-    icon: /* @__PURE__ */ React__default.createElement(IconFont, {
-      iconName: "icon-copy"
-    })
-  }), onAddCollection && /* @__PURE__ */ React__default.createElement(ToolItem$1, {
-    onClick: handleAddToCollection,
-    title: t("Add to collection"),
-    icon: /* @__PURE__ */ React__default.createElement(IconFont, {
-      iconName: "icon-collection"
-    })
-  }), /* @__PURE__ */ React__default.createElement(ToolItem$1, {
-    onClick: handleDelete,
-    title: t("Delete"),
-    icon: /* @__PURE__ */ React__default.createElement(IconFont, {
-      iconName: "icon-delete"
-    })
-  }), modal);
-}
 function getAnchorElement(node) {
   if (!node)
     return null;
@@ -36836,7 +36777,7 @@ function Tools(props) {
       display: "flex",
       alignItems: "center"
     }
-  }, /* @__PURE__ */ React__default.createElement(BasicTools, null), mergeTags2 && /* @__PURE__ */ React__default.createElement(MergeTags, {
+  }, mergeTags2 && /* @__PURE__ */ React__default.createElement(MergeTags, {
     execCommand,
     getPopupContainer: getPopoverMountNode
   }), /* @__PURE__ */ React__default.createElement("div", {
@@ -36966,7 +36907,9 @@ function RichTextToolBar(props) {
       left: 8,
       top: 0,
       zIndex: 100,
-      width: "calc(100% - 16px)"
+      width: "calc(100% - 16px)",
+      display: "flex",
+      justifyContent: "center"
     }
   }, /* @__PURE__ */ React__default.createElement("div", {
     style: {
@@ -40252,7 +40195,7 @@ function Toolbar() {
   const { modal, setModalVisible } = useAddToCollection();
   const props = useEditorProps();
   const isPage = (focusBlock2 == null ? void 0 : focusBlock2.type) === BasicType.PAGE;
-  const isText = isTextBlock(focusBlock2 == null ? void 0 : focusBlock2.type);
+  isTextBlock(focusBlock2 == null ? void 0 : focusBlock2.type);
   const handleAddToCollection = () => {
     if (document.activeElement instanceof HTMLElement) {
       document.activeElement.blur();
@@ -40277,8 +40220,6 @@ function Toolbar() {
     }
     setFocusIdx(getParentIdx(focusIdx2));
   };
-  if (isText)
-    return null;
   return /* @__PURE__ */ React__default.createElement(React__default.Fragment, null, /* @__PURE__ */ React__default.createElement("div", {
     id: "easy-email-extensions-InteractivePrompt-Toolbar",
     style: {

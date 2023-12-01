@@ -1,1 +1,1 @@
-export declare function Toolbar(): JSX.Element | null;
+export declare function Toolbar(): JSX.Element;
