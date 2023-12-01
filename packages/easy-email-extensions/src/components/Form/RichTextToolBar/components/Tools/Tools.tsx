@@ -120,7 +120,7 @@ export function Tools(props: ToolsProps) {
           alignItems: 'center',
         }}
       >
-        <BasicTools />
+        {/*<BasicTools />*/}
 
         {mergeTags && (
           <MergeTags

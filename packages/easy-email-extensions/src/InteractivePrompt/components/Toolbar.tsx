@@ -50,7 +50,7 @@ export function Toolbar() {
     setFocusIdx(getParentIdx(focusIdx)!);
   };
 
-  if (isText) return null;
+  //if (isText) return null;
   return (
     <>
       <div
